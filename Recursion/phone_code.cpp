@@ -2,7 +2,7 @@
 #include <string>
 
 using namespace std;
-string array[3]={".","abc","def"};
+string array[]={".","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
 char output[]="";
 void generateCode(char num[],int i, int a){
         if(num[i]=='\0') {
