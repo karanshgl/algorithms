@@ -4,7 +4,7 @@
 using namespace std;
 //typedef vector <int> vi;
 
-int k=10;
+int k=10; //sum
 
 bool check(int sum){
         if(sum<=k) return true;
@@ -34,6 +34,8 @@ int main(){
         int a[100],n, subset[100];
         cin>>n;
         for(int i=0; i<n; i++) cin>>a[i];
+        cout<<"Enter the sum\n";
+        cin>>k;
         subsetGen(a,0,n,0, subset,0,0);
         return 0;
 }
