@@ -2,9 +2,9 @@
 #define N 4
 using namespace std;
 
-
+int c;
 void printSol(bool sol[][N]){
-        cout<<"The Solution is"<<endl;
+        cout<<endl<<"The Solution "<<++c<<" is"<<endl;
         for(int i=0; i<N; i++) {
                 for(int j=0; j<N; j++) cout<<sol[i][j]<<" ";
                 cout<<endl;
@@ -19,20 +19,24 @@ bool canMove(bool maze[][N], int x, int y){
 bool move(bool maze[][N], int x, int y, bool sol[][N]){
 
         if(x==N-1&&y==N-1) {
-                sol[x][y]=1;
-                return true;
+                if(maze[x][y]) {
+                        sol[x][y]=1;
+                        printSol(sol);
+                        return true;
+                }
+                else return false;
         }
-
+        bool s=false;
         if(canMove(maze,x,y)) {
                 sol[x][y]=1;
 
-                if(move(maze,x+1,y,sol)) return true;
+                if(move(maze,x+1,y,sol)) s = true;
 
-                if(move(maze,x,y+1,sol)) return true;
+                if(move(maze,x,y+1,sol)) s = true;
 
                 sol[x][y]=0;
         }
-        return false;
+        return s;
 }
 
 
@@ -43,7 +47,6 @@ int main(){
                 for(int j=0; j<N; j++) cin>>maze[i][j];
         }
         cout<<endl;
-        if(move(maze,0,0,sol)) printSol(sol);
-        else cout<<"Not Possible"<<endl;
+        if(!move(maze,0,0,sol)) cout<<"Not Possible"<<endl;
         return 0;
 }
