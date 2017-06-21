@@ -2,7 +2,7 @@
 
 using namespace std;
 
-char output[]="";
+char output[100];
 void printCodes(char num[], int i, int a){
         if(num[i]=='\0') {
                 output[a]='\0';
