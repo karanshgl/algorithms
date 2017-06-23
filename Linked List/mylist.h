@@ -32,13 +32,26 @@ void addToFront(Node* &head, Node* nodeToAdd){
 	head = nodeToAdd;
 }
 
-Node* takeInput(){
+
+void addToEnd(Node* &head, Node* nodeToAdd){
+	if (head == NULL){
+		head = nodeToAdd;
+		return;
+	}
+  Node *temp=head;
+  while(temp->next) temp=temp->next;
+	temp->next = nodeToAdd;
+}
+
+
+Node* takeInput(int loc=1){
 	//take n numbers and add each successive number to the front of LL
 	Node * head = NULL;
   int num;
 	while(cin>>num&&num!=-1){
 		Node * newNode = new Node(num);
-		addToFront(head, newNode);
+    if(loc==0) addToFront(head,newNode);
+		else if(loc==1) addToEnd(head, newNode);
 	}
 	return head;
 }
@@ -76,7 +89,7 @@ Node *rev(Node *head){
 Node *mid(Node *head){
   Node *slow=head;
   Node *fast=head;
-  while(fast && fast->next){
+  while(fast && fast->next && fast->next->next){
     fast=fast->next->next;
     slow=slow->next;
   }

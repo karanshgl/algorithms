@@ -25,14 +25,16 @@ void mergeSort(Node *&head){
   Node *middle = mid(head);
   Node *right =  middle->next;
   middle->next=NULL;
+  mergeSort(head);
+  mergeSort(right);
   Node * sorted = merge(head,right);
   head=sorted;
 
 }
 
 int main(){
-  Node *head= takeInput();
-  head=rev(head);
+  Node *head = takeInput();
+  print(head);
   mergeSort(head);
   print(head);
   return 0;

@@ -20,7 +20,7 @@ Node* add(Node *num1, Node *num2){
 
     Node *temp = new Node(sum);
     addToFront(head, temp);
-    
+
     if(num1) num1=num1->next;
     if(num2) num2=num2->next;
 }
@@ -35,10 +35,8 @@ Node* add(Node *num1, Node *num2){
 }
 
 int main(){
-  Node *h1=takeInput();
-  Node *h2=takeInput();
-//  h1=rev(h1);
-//  h2=rev(h2);
+  Node *h1=takeInput(0); //Adding to front
+  Node *h2=takeInput(0);
   Node *ans= add(h1,h2);
   print(ans);
 }
