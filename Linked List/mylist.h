@@ -62,6 +62,7 @@ void print(Node *head){
     cout<<head->data<<" ";
     head=head->next;
   }
+  cout<<endl;
 }
 
 Node *reverse(Node *head){
