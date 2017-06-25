@@ -12,11 +12,8 @@ Node* add(Node *num1, Node *num2){
     if(num1) sum+=num1->data;
     if(num2) sum+=num2->data;
 
-    if(sum>9){
       carry=sum/10;
       sum=sum%10;
-    }
-    else carry = 0;
 
     Node *temp = new Node(sum);
     addToFront(head, temp);
