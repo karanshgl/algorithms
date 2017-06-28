@@ -12,6 +12,7 @@ void reconstruct(){
         for(int i=0; i<len; i++) newData[i]=data[i];
         delete [] data;
         data=newData;
+        capacity=2*capacity;
 }
 
 public:
@@ -64,7 +65,6 @@ friend ostream& operator <<(ostream &output,Vector &V){
   output<<endl;
   return output;
 }
-// 
 // friend istream& operator <<(istream &input,Vector &V){
 //
 //   return input;
