@@ -56,6 +56,17 @@ Node* takeInput(int loc=1){
 	return head;
 }
 
+Node* takenInput(int n){
+	//take n numbers and add each successive number to the front of LL
+	Node * head = NULL;
+  int num;
+	for(int i=0;i<n;i++){
+    cin>>num;
+		Node * newNode = new Node(num);
+		addToEnd(head, newNode);
+	}
+	return head;
+}
 
 void print(Node *head){
   while(head){
