@@ -130,7 +130,7 @@ istream& operator >>(istream &input,Node* &root){
 
 int sumTree(Node *&root){
   if(root==NULL) return 0;
-  
+
   root->data+=sumTree(root->left);
   root->data+=sumTree(root->right);
   //cout<<root;
@@ -138,13 +138,10 @@ int sumTree(Node *&root){
 }
 
 
+bool find(Node *root, int data){
+  if(root==NULL) return false;
+  if(root->data==data) return true;
 
-int main(){
-//  Node *root = levelInput();
-//  printIn(root);
-Node *root;
-cin>>root;
-sumTree(root);
-cout<<root;
-
+  if(find(root->left,data)||find(root->right,data)) return true;
+  return false;
 }
