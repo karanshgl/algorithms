@@ -1,4 +1,5 @@
 #include<iostream>
+#include<queue>
 using namespace std;
 
 class Node{
@@ -45,4 +46,28 @@ bool structTree(Node *a, Node *b){
     if(!structTree(a->p[i],b->p[i])) return false;
   }
   return true;
+}
+
+
+void printLevel(Node *root){
+  queue <Node *> q;
+  q.push(root);
+  q.push(NULL);
+  cout<<root->data<<endl;
+  while(!q.empty()){
+    Node *cur=q.front();
+    q.pop();
+    if(cur==NULL){
+      cout<<endl;
+      if(!q.empty()) q.push(NULL);
+      continue;
+    }
+
+    for(int i=0;i<cur->child;i++){
+      if(cur->p[i]){
+        cout<<cur->p[i]->data<<" ";
+        q.push(cur->p[i]);
+      }
+    }
+  }
 }
