@@ -17,6 +17,7 @@ void printSpiral(int mat[][10], int m, int n){
 
         while(left <= right || top <= bottom) {
                 if(top <= bottom) {
+                  //Prints the top row left ro right
                         for(int i = left; i <= right; ++i) {
                                 cout << mat[top][i]<<", ";
                         }
@@ -24,6 +25,7 @@ void printSpiral(int mat[][10], int m, int n){
                 }
 
                 if (left <= right) {
+                  //Prints the right col top to down
                         for(int i = top; i <= bottom; ++i) {
                                 cout << mat[i][right]<<", ";
                         }
@@ -31,6 +33,7 @@ void printSpiral(int mat[][10], int m, int n){
                 }
 
                 if (top <= bottom) {
+                  //Prints the bottom row righ to left
                         for(int col = right; col >= left; --col) {
                                 cout << mat[bottom][col]<<", ";
                         }
@@ -38,6 +41,7 @@ void printSpiral(int mat[][10], int m, int n){
                 }
 
                 if (left <= right) {
+                  //Prints the left col bottom to top
                         for(int row = bottom; row >= top; --row) {
                                 cout << mat[row][left]<<", ";
                         }

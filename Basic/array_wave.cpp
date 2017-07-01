@@ -1,3 +1,5 @@
+//A Program to print a matrix in a wave form i.e. one row left-right other right-left
+
 #include<iostream>
 
 using namespace std;
@@ -5,9 +7,11 @@ using namespace std;
 int M,N;
 
 void print(int arr[][10], int r){
+  //Function to print a row
   if(r==M) return;
 
   if(r%2==0){
+    //Checks if to print left to right or right to left
     for(int i=0;i<N;i++) cout<<arr[r][i]<<", ";
     print(arr,r+1);
   }

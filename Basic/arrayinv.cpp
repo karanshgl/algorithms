@@ -1,3 +1,5 @@
+//A program to print inverse of an array, inverse of an array a is an array b in which for every i, i = b[a[i]]
+
 #include<iostream>
 
 using namespace std;
