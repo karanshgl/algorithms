@@ -1,0 +1,2 @@
+1. Given an array of pairs, is it possible to construct a tree such that the first elements of the pairs make a BST and the second elements of the pairs make a heap.
+2. Given a tree, can you break the tree from an edge such that the two trees have equal number of nodes.
