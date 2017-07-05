@@ -17,7 +17,7 @@ int redPara(char *str){
     op=false;
     if(checkop(str[i])||str[i]=='(') st.push(str[i]);
     if(str[i]==')'){
-      while(s.empty()==false && st.top()!='('){
+      while(st.empty()==false && st.top()!='('){
         if(checkop(st.top())) op=true;
         st.pop();
       }
