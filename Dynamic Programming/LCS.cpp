@@ -18,7 +18,7 @@ string lcs(char str1[], char str2[]){
   string ans;
   string ** strMatrix = new string*[row];
   for(int i=0;i<row;i++) strMatrix[i] = new string[col]();
-  
+
   for(int i=0;i<row;i++){
     for(int j=index;j<col;j++){
       if(i-1>=0) strMatrix[i][j] = strMatrix[i-1][j];
