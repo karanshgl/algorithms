@@ -24,7 +24,7 @@ public:
 
 typedef priority_queue<Triple, vector<Triple>, more> pq;
 
-vector<int> makeArray(int arr[][100], int k, int n){
+vector<int> makeArray(int **arr, int k, int n){
 pq q;
 vector <int> ans;
 for(int i=0;i<k;i++){
@@ -48,9 +48,12 @@ return ans;
 
 
 int main(){
-  int arr[100][100];
+  int **arr;
   int k,n;
   cin>>k>>n;
+  arr = new int*[k];
+  for(int i=0;i<k;i++) arr[i] = new int[n];
+
   for(int i=0;i<k;i++){
     for(int j=0;j<n;j++) cin>>arr[i][j];
   }
