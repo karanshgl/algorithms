@@ -4,39 +4,29 @@
 
 using namespace std;
 
-int back(vector<int> &v){
-  if(v.size()<0) return -1;
-  return v[v.size()-1];
-}
+const int inf = 100000;
 
-
-vector<int> lis(int arr[], int n){
-
-  vector<int> *memo =  new vector<int> [n];
-
-  for(int i=n-1;i>=0;i--){
-    memo[i].push_back(arr[i]);
-    for(int j=i-1;j>=0;j--){
-      if(arr[j]<back(memo[i])){
-        memo[i].push_back(arr[j]);
+int lis(int arr[], int n){
+//computes the length of lis ending at en
+  int dp[n]={};
+  for(int i=0;i<n;i++) dp[i] = 1;
+  for(int i=0;i<n;i++){
+    //computes the length of lis ending at the ith element
+    for(int j=0;j<i;j++){
+      if(arr[i]>arr[j] && dp[i]<dp[j]+1){
+        dp[i]=dp[j]+1;
       }
     }
   }
-  int maxIndex=0;
-  for(int i=0;i<n;i++){
-    if(memo[maxIndex].size()<memo[i].size()) maxIndex=i;
-  }
-  vector<int> ans = memo[maxIndex];
-  delete [] memo;
-  reverse(ans.begin(),ans.end());
-  return ans;
+  int res = 0;
+  for(int i=0;i<n;i++) res = max(res,dp[i]);
+
+  return res;
 }
 
 int main(){
-  int arr[100], n;
+  int arr[100000], n;
   cin>>n;
   for(int i=0;i<n;i++) cin>>arr[i];
-  vector<int> ans = lis(arr,n);
-  for(int i=0;i<ans.size();i++) cout<<ans[i]<<" ";
-
+  cout<<lis(arr,n)<<endl;
 }
