@@ -50,17 +50,17 @@ public:
     for(int i=1;i<=nV;i++) dist[i]= inf;
 
     priority_queue<Vertex> q;
-    q.push(Vertex(src,0));
+    q.push(Vertex(src,0)); //distance of src from src is 0
 
     while(q.empty()==false){
       Vertex curVer = q.top();
       q.pop();
-      dist[curVer.id] = min(curVer.wt, dist[curVer.id]);
+      dist[curVer.id] = min(curVer.wt, dist[curVer.id]); 
 
       for(list<Vertex>::iterator it = adjList[curVer.id].begin(); it != adjList[curVer.id].end(); ++it){
         Vertex neighbour = *it;
-        int distFromSrc = neighbour.wt + curVer.wt;
-        if(distFromSrc < dist[neighbour.id]) q.push(Vertex(neighbour.id,distFromSrc));
+        int distFromSrc = neighbour.wt + curVer.wt; //distance of enighbour from src = wt of neighbour + wt of reference vertex
+        if(distFromSrc < dist[neighbour.id]) q.push(Vertex(neighbour.id,distFromSrc)); //minimum distance
       }
     }
     int ans = dist[dest];

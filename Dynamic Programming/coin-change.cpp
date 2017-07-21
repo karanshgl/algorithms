@@ -2,7 +2,7 @@
 
 using namespace std;
 
-int arr[]={1,3,5,6};
+int arr[]={6,3,5,1};
 int n=4;
 const int inf = 1000000 ;
 
